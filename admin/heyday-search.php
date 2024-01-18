@@ -90,10 +90,10 @@ class heydayWebSearch_Heyday_search_Plugin_menue
 
     public static function heydayWebPush_heyday_settings()
     {   
-    add_action('admin_print_styles', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heydayWebPush_enqueue_custom_admin_style']);
-    do_action('admin_print_styles');
-    add_action('admin_enqueue_scripts', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heydayWebPush_enqueue_custom_admin_script']);
-    do_action('admin_enqueue_scripts');
+    add_action('heyday_admin_print_styles', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heydayWebPush_enqueue_custom_admin_style']);
+    do_action('heyday_admin_print_styles');
+    add_action('heyday_admin_enqueue_scripts', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heydayWebPush_enqueue_custom_admin_script']);
+    do_action('heyday_admin_enqueue_scripts');
     heydayWebSearch_Heyday_search_Plugin_menue::$settings = get_option(heydayWebPush_HEYDAY_OPTIONS, []);
     heydayWebSearch_Heyday_search_Plugin_menue::heyday_conf_settings_page();
     
@@ -117,8 +117,8 @@ class heydayWebSearch_Heyday_search_Plugin_menue
             heydayWebSearch_Heyday_search_Plugin_menue::$randPassword .= $keyspace[ rand (0 , $max ) ];
         }
 
-        add_action('admin_print_scripts', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heydayWebPush_print_inline_init_script']);
-        do_action('admin_print_scripts');
+        add_action('heyday_admin_print_scripts', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heydayWebPush_print_inline_init_script']);
+        do_action('heyday_admin_print_scripts');
 
     }
 
@@ -740,8 +740,8 @@ class heydayWebSearch_Heyday_search_Plugin_menue
 
     private static function heydayWebPush_reactivationSuccess()
     {
-        add_action('admin_print_scripts', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heydayWebPush_print_inline_reactivatio_script']);
-        do_action('admin_print_scripts');
+        add_action('heyday_admin_print_scripts', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heydayWebPush_print_inline_reactivatio_script']);
+        do_action('heyday_admin_print_scripts');
     }
 }
 

@@ -235,7 +235,7 @@ function heydayShowLogin(msg) {
       selectPostTypeNonce = response.selectPostTypeNonce;
   });
 
-  $.post(ajaxurl, { 'action': 'check_status' }, function(response) {
+  $.post(ajaxurl, { 'action': 'heyday_check_status' }, function(response) {
       if(response.status === 'completed') {
           var progress = Math.min(100, (response.processed_posts / response.total_posts) * 100);
           $('#progressBar').val(progress);
@@ -261,7 +261,7 @@ function heydayShowLogin(msg) {
     url: ajaxurl,
     type: 'POST',
     data: {
-        'action': 'stop_load_progress', 
+        'action': 'heyday_stop_load_progress', 
     },
     success: function(response) {
         $('#stopLoad').prop('disabled', true); 
@@ -282,7 +282,7 @@ function heydayShowLogin(msg) {
 
 function loadUserData() {
     var data = {
-        'action': 'load_user_data',
+        'action': 'heyday_load_user_data',
     };
     $.post(ajaxurl, data, function(response) {
         if(response.status === 'in progress') {
@@ -309,7 +309,7 @@ $('#savePostTypes').click(function() {
       url: ajaxurl,
       type: 'POST',
       data: {
-          'action': 'select_posts_types',
+          'action': 'heyday_select_posts_types',
           'loadType': 'update',
           'selectedPostTypes': selectedPostTypes,
           'heydayWpnonce': fetchUpdateTypesNonce,
@@ -329,7 +329,7 @@ function loadPostTypes() {
       url: ajaxurl,
       type: 'POST',
       data: {
-          'action': 'select_posts_types',
+          'action': 'heyday_select_posts_types',
           'loadType': 'fetch',
           'heydayWpnonce': fetchUpdateTypesNonce,
       },
@@ -382,7 +382,7 @@ function loadPostTypes() {
       url: ajaxurl,
       type: 'POST',
       data: {
-          'action': 'load_posts_and_products', 
+          'action': 'heyday_load_posts_and_products', 
           'loadType': loadType,
           'maxIndexPagesValue': parseInt(maxIndexPagesValue),
           'heydayWpnonce': selectPostTypeNonce,
@@ -427,7 +427,7 @@ function loadPostTypes() {
         url:ajaxurl,
         type: 'POST',
         data: {
-            action: 'get_product_attributes_and_categories'
+            action: 'heyday_get_product_attributes_and_categories'
         },
         success: function(response) {
           var categories = response.categories;
@@ -529,7 +529,7 @@ function loadPostTypes() {
                     url: ajaxurl,
                     type: 'POST',
                     data: {
-                        action: 'save_index_configuration',
+                        action: 'heyday_save_index_configuration',
                         selectedCategories: selectedCategories,
                         selectedAttributes: selectedAttributes,
                         selectedFields: selectedFields,
@@ -546,7 +546,7 @@ function loadPostTypes() {
   });
   
   function startCheckStatusInterval() {
-          $.post(ajaxurl, { 'action': 'check_status' }, function(response) {
+          $.post(ajaxurl, { 'action': 'heyday_check_status' }, function(response) {
               if(response.status === 'completed') {
                   console.log("Done");
                   $('#stopLoad').prop('disabled', true);

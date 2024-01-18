@@ -899,21 +899,21 @@ class heydayWebSearch_Heyday_search_Plugin
 
     private function __construct()
     {   
-        add_action( 'wp_ajax_load_user_data', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heyday_search_load_user_data']);
-        add_action('wp_ajax_nopriv_load_user_data', ['heydayWebSearch_Heyday_search_Plugin_menue','heyday_search_load_user_data']);
-        add_action('wp_ajax_check_status', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heyday_search_check_status']);
-        add_action('wp_ajax_nopriv_check_status',['heydayWebSearch_Heyday_search_Plugin_menue', 'heyday_search_check_status']);
+        add_action('wp_ajax_heyday_load_user_data', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heyday_search_load_user_data']);
+        add_action('wp_ajax_nopriv_heyday_load_user_data', ['heydayWebSearch_Heyday_search_Plugin_menue','heyday_search_load_user_data']);
+        add_action('wp_ajax_heyday_check_status', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heyday_search_check_status']);
+        add_action('wp_ajax_nopriv_heyday_check_status',['heydayWebSearch_Heyday_search_Plugin_menue', 'heyday_search_check_status']);
         add_action('wp_ajax_heyday_init_js', ['heydayWebSearch_Heyday_search_Plugin_menue', 'heyday_search_heyday_init_js']);
         add_action('wp_ajax_nopriv_heyday_init_js',['heydayWebSearch_Heyday_search_Plugin_menue', 'heyday_search_heyday_init_js']);
-        add_action('wp_ajax_get_product_attributes_and_categories', ['heydayWebSearch_Heyday_search_Plugin_menue','get_product_attributes_and_categories']);
-        add_action('wp_ajax_save_index_configuration',  ['heydayWebSearch_Heyday_search_Plugin_menue','save_index_configuration']);
-        add_action('wp_ajax_nopriv_save_index_configuration',  ['heydayWebSearch_Heyday_search_Plugin_menue','save_index_configuration']);
-        add_action('wp_ajax_load_posts_and_products', ['heydayWebSearch_Heyday_search_Plugin_menue','heyday_select_post_type']); 
-        add_action('wp_ajax_nopriv_load_posts_and_products', ['heydayWebSearch_Heyday_search_Plugin_menue','heyday_select_post_type']);
-        add_action('wp_ajax_stop_load_progress', ['heydayWebSearch_Heyday_search_Plugin_menue','stop_load_progress']); 
-        add_action('wp_ajax_nopriv_stop_load_progress', ['heydayWebSearch_Heyday_search_Plugin_menue','stop_load_progress']);
-        add_action('wp_ajax_select_posts_types', ['heydayWebSearch_Heyday_search_Plugin_menue','select_posts_types']);
-        add_action('wp_ajax_nopriv_select_posts_types', ['heydayWebSearch_Heyday_search_Plugin_menue','select_posts_types']);
+        add_action('wp_ajax_heyday_get_product_attributes_and_categories', ['heydayWebSearch_Heyday_search_Plugin_menue','get_product_attributes_and_categories']);
+        add_action('wp_ajax_heyday_save_index_configuration',  ['heydayWebSearch_Heyday_search_Plugin_menue','save_index_configuration']);
+        add_action('wp_ajax_nopriv_heyday_save_index_configuration',  ['heydayWebSearch_Heyday_search_Plugin_menue','save_index_configuration']);
+        add_action('wp_ajax_heyday_load_posts_and_products', ['heydayWebSearch_Heyday_search_Plugin_menue','heyday_select_post_type']); 
+        add_action('wp_ajax_nopriv_heyday_load_posts_and_products', ['heydayWebSearch_Heyday_search_Plugin_menue','heyday_select_post_type']);
+        add_action('wp_ajax_heyday_stop_load_progress', ['heydayWebSearch_Heyday_search_Plugin_menue','stop_load_progress']); 
+        add_action('wp_ajax_nopriv_heyday_stop_load_progress', ['heydayWebSearch_Heyday_search_Plugin_menue','stop_load_progress']);
+        add_action('wp_ajax_heyday_select_posts_types', ['heydayWebSearch_Heyday_search_Plugin_menue','select_posts_types']);
+        add_action('wp_ajax_nopriv_heyday_select_posts_types', ['heydayWebSearch_Heyday_search_Plugin_menue','select_posts_types']);
 
         add_action('admin_menu', [$this, 'set_admin_pages']);
         $settings = get_option(heydayWebPush_HEYDAY_OPTIONS, []);

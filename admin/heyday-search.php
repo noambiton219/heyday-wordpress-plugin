@@ -547,7 +547,7 @@ class heydayWebSearch_Heyday_search_Plugin_menue
             $loadedPosts = $heydayPluginOptions['heyday_search_processed_posts'];
         }
         $result = heydayWebSearch_Heyday_search_Plugin_menue::loadData($loadedPosts, 50, array());
-        $status = '';
+        $status = 'in progress';
         if(isset($heydayPluginOptions['heyday_search_progress_status'])){
             $status = $heydayPluginOptions['heyday_search_progress_status'];
         }
